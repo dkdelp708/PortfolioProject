@@ -1,39 +1,41 @@
-var articles = [];
+var hhSpots = [];
 
-function Article (opts) {
+function hhSpot (opts) {
   this.title = opts.title;
-  this.category = opts.category;
-  this.author = opts.author;
-  this.authorUrl = opts.authorUrl;
-  this.publishedOn = opts.publishedOn;
-  this.body = opts.body;
+  this.hhTime = opts.hhTime;
+  this.location = opts.location;
+  this.hhMenuUrl = opts.hhMenuUrl;
+  this.venueWebsiteUrl = opts.venueWebsiteUrl;
+  this.distance = opts.distance;
+  this.image = opts.image;
+  this.yelpReviewsUrl = opts.yelpReviewsUrl;
 }
 
-Article.prototype.toHtml = function() {
-  var $newArticle = $('article.template').clone();
+hhSpot.prototype.toHtml = function() {
+  var $newhhSpot = $('.template').clone();
 
-  $newArticle.data('category', this.category);
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('h1').html(this.title);
-  $newArticle.find('a').text(this.author);
-  $newArticle.find('a').attr('href', this.authorUrl);
-  $newArticle.find('.article-body').html(this.body);
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago')
-  $newArticle.append('<hr>');
-  $newArticle.removeClass('template');
-  return $newArticle;
+  $newhhSpot.find('h1').html(this.title);
+  $newhhSpot.find('h2').html('HH Time: ' + this.hhTime);
+  $newhhSpot.find('h3').html('Distance from Code Fellows: ' + this.distance);
+  $newhhSpot.find('.location').html('Address: ' + this.location);
+  $newhhSpot.find('.hhMenu').html(this.hhMenuUrl);
+  $newhhSpot.find('.venueWebsite').html(this.venueWebsiteUrl);
+  $newhhSpot.find('.image').html(this.image);
+  $newhhSpot.find('.yelpReviewsUrl').html(this.yelpReviewsUrl);
+  $newhhSpot.removeClass('template');
+  return $newhhSpot;
 }
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+hhRawData.sort(function(a,b) {
+  return (new Date(a.distance)) - (new Date(b.distance));
 });
 
-rawData.forEach(function(ele) {
-  articles.push(new Article(ele));
+hhRawData.forEach(function(ele) {
+  hhSpots.push(new hhSpot(ele));
 })
 
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
+hhSpots.forEach(function(a){
+  $('#hhSpots').append(a.toHtml())
 });
 
 
