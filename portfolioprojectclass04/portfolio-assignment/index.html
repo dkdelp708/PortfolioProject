@@ -8,11 +8,24 @@
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/layout.css">
     <link rel="stylesheet" href="Styles/modules.css">
-
     <script id = 'hh-template' type='text/x-handlebars-template'>
-
+        <header>
+          <h1> {{title}} </h1>
+          <h2> {{hhtime}} </h2>
+          <h3> {{distance}} </h3>
+          <br> </br>
+          <p class = 'location'> {{location}} </p>
+          <p class = 'hhMenu'> {{hhMenuUrl}} </p>
+          <p class = 'venueWebsite'> {{venueWebsiteUrl}} </p>
+          <p class = 'yelpReviewsUrl'> {{yelpReviewsUrl}} </p>
+        </header>
+      <section class='hh-body'> {{body}} </section>
+      <a href = '#' class='read-on'> Read On </a>
+    </section>
+  </script>
   </head>
   <body>
+    <div id = '#hhSpots'> </div>
     <main>
         <header class = 'site-header clear-fix'>
           <section class = 'heading-group-h1'>
@@ -48,23 +61,7 @@
               </li>
           </ul>
         </div>
-          <bar class="template">
-            <header>
-              <h1> {{title}} </h1>
-              <p class = 'image'> </p>
-              <h2> {{time}} </h2>
-              <h3> {{distance}} </h3>
-              <br> /br>
-              <p class = 'location'> {{location}} </p>
-              <p class = 'hhMenu'> {{hhMenu}} </p>
-              <p class = 'venueWebsite'> {{venueWebsite}} </p>
-              <p class = 'yelpReviewsUrl'> {{yelpReviewsUrl}} </p>
-              </div>
-            </header>
-          <section class='hh-body'> {{body}} </section>
-          <a href = '#' class='read-on'> Read On </a>
-          </article>
-        </section>
+
     </main>
     <footer>
       &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
@@ -75,7 +72,4 @@
     <script src = 'Scripts/hhView.js'> </script>
     <script src = 'Scripts/hhArticle.js'> </script>
   </body>
-  <script>
-    articleView.initIndexPage()
-  </script>
 </html>

@@ -14,7 +14,6 @@ function hhSpot (opts) {
 
 hhSpot.prototype.toHtml = function() {
   var newhhSpot = Handlebars.compile($('#hh-template').text());
-  this.body = marked(this.body);
   return newhhSpot(this);
 };
 
@@ -25,7 +24,7 @@ if (typeof rawData !== 'undefined') {
 
   hhRawData.forEach(function(ele) {
     hhSpots.push(new hhSpot(ele));
-  })
+    })
 }
 
 hhSpots.forEach(function(a){
