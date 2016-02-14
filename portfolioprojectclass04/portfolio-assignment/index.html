@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Happy Hour Spots</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="Styles/icons.css">
+    <link rel="stylesheet" href="Styles/base.css">
+    <link rel="stylesheet" href="Styles/layout.css">
+    <link rel="stylesheet" href="Styles/modules.css">
+    <script id = 'hh-template' type='text/x-handlebars-template'>
+        <header>
+          <h1> {{title}} </h1>
+          <h2> {{hhtime}} </h2>
+          <h3> {{distance}} </h3>
+          <br> </br>
+          <p class = 'location'> {{location}} </p>
+          <p class = 'hhMenu'> {{hhMenuUrl}} </p>
+          <p class = 'venueWebsite'> {{venueWebsiteUrl}} </p>
+          <p class = 'yelpReviewsUrl'> {{yelpReviewsUrl}} </p>
+        </header>
+      <section class='hh-body'> {{body}} </section>
+      <a href = '#' class='read-on'> Read On </a>
+    </section>
+  </script>
+  </head>
+  <body>
+    <div id = '#hhSpots'> </div>
+    <main>
+        <header class = 'site-header clear-fix'>
+          <section class = 'heading-group-h1'>
+          <h1>
+            Happy Hour Spots Near Code Fellows!
+          </h1>
+          <p class = 'title'>The shocking power of HH</p>
+       </section>
+        <nav class = 'main-nav'>
+          <div class='icon-menu'></div>
+          <ul> Happy Hour Relevance
+            <br> </br>
+            <li class = 'tab' data-content = 'reference'><a href = 'https://en.wikipedia.org/wiki/Happy_hour'> Definition </a></li>
+            <li class = 'tab' data-content = 'reference'><a href= 'http://www.esquire.com/food-drink/bars/a25516/true-happy-hour-charts-1113/'>The Real Happy Hour</a></li>
+            <li class = 'tab' data-content = 'reference'><a href= 'https://seattlestartupweek2015.sched.org/list/descriptions/
+              '>Seattle Startups and HH</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="hhSpots" class = "tab-content">
+          <div>
+            <ul id ='filters'>
+              <li>
+                <select id='bar-filter'>
+                  <option value=''>--Filter by Bar Name--</option>
+                </select>
+              </li>
+              <li>
+                <select id='distance-filter'>
+                  <option value=''>--Filter by Distance--</option>
+                </select>
+              </li>
+          </ul>
+        </div>
+
+    </main>
+    <footer>
+      &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src = 'Scripts/hhRawData.js'> </script>
+    <script src = 'Scripts/hhView.js'> </script>
+    <script src = 'Scripts/hhArticle.js'> </script>
+  </body>
+</html>
