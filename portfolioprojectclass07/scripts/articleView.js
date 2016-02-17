@@ -111,3 +111,8 @@ articleView.initIndexPage = function() {
   articleView.handleMainNav();
   articleView.setTeasers();
 };
+
+articleView.initAdminPage = function () {
+  var template = Handlebars.compile($('#author-template').html());
+  var template;
+}

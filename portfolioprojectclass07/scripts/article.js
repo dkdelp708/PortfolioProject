@@ -1,3 +1,5 @@
+(function (module) {
+
 function Article (opts) {
   this.author = opts.author;
   this.authorUrl = opts.authorUrl;
@@ -51,10 +53,37 @@ Article.fetchAll = function() {
         })
       };
 
-      //TODO: What do we pass in here to the .loadAll function
-      //TODO: What method do we call to render the index page
-    // TODO: When we don't already have the rawData,
-    // we need to retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
-    // cache it in localStorage so we can skip the server call next time,
-    // then load all the data into Article.all with the .loadAll function above,
-    // and then render the index page.
+Article.numWordsAll = function() {
+  return Article.all.map(function(article){
+    return article.body;
+  })
+  .reduce(function(a, b) {
+    return a + "" + b;
+  }).split("").length;
+};
+
+Article.allAuthors = function () {
+  return Article.all.map(function(article){
+    return article.author;
+  })
+  .reduce(function(kobe, lebron){
+    return a + "" + b;
+  }).split("").length;
+};
+
+Article.numWordsByAuthor = function () {
+  return Article.allAuthors().map(function(author){
+    return {
+      name: author,
+      words: Article.all.filter(function(el) {
+        if (el.author === author) {
+          return true } else {
+            return false
+      }).reduce(function(start, next) {
+        return start + next.body.split('').length;
+      }, 0)
+    }
+  })
+};
+module.Article = Article;
+})(window);
