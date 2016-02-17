@@ -72,18 +72,21 @@ Article.allAuthors = function () {
 };
 
 Article.numWordsByAuthor = function () {
-  return Article.allAuthors().map(function(author){
+  return Article.allAuthors().map(function(author) {
     return {
       name: author,
-      words: Article.all.filter(function(el) {
-        if (el.author === author) {
-          return true } else {
-            return false
-      }).reduce(function(start, next) {
-        return start + next.body.split('').length;
-      }, 0)
-    }
-  })
+      numOfWords: Article.all.filter(function(el) {
+          return el.author === author;
+      })
+      .map(function(el) {
+        return el.body.match(/\b\w+/g).length;
+      })
+    }.reduce(function(a, b) {
+        return a + b;
+      })
+    })
+  }
 };
+
 module.Article = Article;
 })(window);
